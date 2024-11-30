@@ -9,7 +9,8 @@ namespace _045_mesa_tuala_F1db
 {
     public class Database
     {
-        const string ConnStr = "some string";
+        // Generic Connection string
+        private string provider = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=";
 
         // Get all drivers
         private OleDbCommand command;
@@ -21,9 +22,10 @@ namespace _045_mesa_tuala_F1db
         private DataTable dt;
 
 
-        public Database()
+        public Database(string file_path)
         {
-            connection = new OleDbConnection(ConnStr);
+            string conn_str = provider + file_path; 
+            connection = new OleDbConnection(conn_str);
         }
 
         public OleDbConnection Connection
