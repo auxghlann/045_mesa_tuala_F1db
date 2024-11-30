@@ -1,6 +1,6 @@
 ﻿namespace _045_mesa_tuala_F1db
 {
-    partial class frmAdd
+    partial class frmUpdate
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // frmAdd
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(363, 443);
-            this.Name = "frmAdd";
-            this.Text = "frmAdd";
-            this.ResumeLayout(false);
-
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "frmUpdate";
         }
 
         #endregion
