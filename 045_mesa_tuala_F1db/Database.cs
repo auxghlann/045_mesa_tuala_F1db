@@ -71,25 +71,6 @@ namespace _045_mesa_tuala_F1db
             return dt;
         }
 
-        public DataTable search_by_keyword(string keyword)
-        {
-            string query = "SELECT model.model as [MODEL DESCRIPTION], brand.brand as [BRAND], model.price " +
-                           "FROM model INNER JOIN brand on model.brandid = brand.brandid " +
-                           "WHERE model_desc LIKE @keyword";
-
-            this.OpenConnection();
-
-            using (command = new OleDbCommand(query, this.Connection))
-            {
-                command.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
-                adapter = new OleDbDataAdapter(command);
-                dt = new DataTable();
-                adapter.Fill(dt);
-                this.CloseConnection();
-                return dt;
-            }
-        }
-
         public int add_record(string model_desc, double price, int brand_id)
         {
             string query = "INSERT INTO model (model_desc, price, brandid) VALUES (@model_desc, @price, @brand_id)";
