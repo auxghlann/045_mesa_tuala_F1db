@@ -15,6 +15,11 @@ namespace _045_mesa_tuala_F1db
 
         private string db_file_path;
         private Database db;
+
+
+        // Forms
+        private frmAdd frmAdd;
+
         public frmMain()
         {
             InitializeComponent();
@@ -33,6 +38,18 @@ namespace _045_mesa_tuala_F1db
 
                 MessageBox.Show("Successfully imported the mdb file", "Success", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+            if (db == null)
+            {
+                MessageBox.Show("Please import the database first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            frmAdd = new frmAdd(db);
+            frmAdd.ShowDialog();
         }
     }
 }
