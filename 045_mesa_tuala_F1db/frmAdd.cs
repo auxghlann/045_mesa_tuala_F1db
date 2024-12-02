@@ -12,9 +12,45 @@ namespace _045_mesa_tuala_F1db
 {
     public partial class frmAdd : Form
     {
-        public frmAdd()
+        Database db;
+        public frmAdd(Database db)
         {
             InitializeComponent();
+            this.db = db;
+
+        }
+
+        // Helper Function
+
+        public void InitializeCBO()
+        {
+            DataTable dt = this.db.query_brand_table();
+            cboBrandAdd.DataSource = dt;
+            cboBrandAdd.DisplayMember = "brand";
+            cboBrandAdd.ValueMember = "brandid";
+        }
+
+        // WinForm Function
+
+        private void frmAdd_Load(object sender, EventArgs e)
+        {
+            InitializeCBO();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            int rows_affectd = db.add_record(txtModeldescAdd.Text, Convert.ToDouble(txtPriceAdd.Text),
+                                    Convert.ToInt32(cboBrandAdd.SelectedValue.ToString()));
+
+            if (rows_affectd > 0)
+            {
+                MessageBox.Show("Successfully added a record", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            else
+            {
+                MessageBox.Show("Failed to add a record", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
