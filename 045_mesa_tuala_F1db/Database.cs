@@ -104,5 +104,20 @@ namespace _045_mesa_tuala_F1db
                 return rows_afffected;
             }
         }
+
+        public int delete_record(string modeldesc)
+        {
+            string query = "DELETE from model WHERE model_desc = @modeldesc";
+
+            this.OpenConnection();
+
+            using (command = new OleDbCommand(query, this.Connection))
+            {
+                command.Parameters.AddWithValue("@modeldesc", modeldesc);
+                int rows_affected = command.ExecuteNonQuery();
+                this.CloseConnection();
+                return rows_affected;
+            }
+        }
     }
 }

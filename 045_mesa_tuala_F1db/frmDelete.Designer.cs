@@ -67,6 +67,7 @@
             this.btnDelete.TabIndex = 16;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // frmDelete
             // 
@@ -78,6 +79,7 @@
             this.Controls.Add(this.txtModeldescDelete);
             this.Controls.Add(this.btnDelete);
             this.Name = "frmDelete";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDelete";
             this.ResumeLayout(false);
             this.PerformLayout();

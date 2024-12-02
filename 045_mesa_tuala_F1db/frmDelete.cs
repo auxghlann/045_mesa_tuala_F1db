@@ -12,9 +12,27 @@ namespace _045_mesa_tuala_F1db
 {
     public partial class frmDelete : Form
     {
-        public frmDelete()
+        Database db;
+
+        public frmDelete(Database db)
         {
             InitializeComponent();
+            this.db = db;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int rows_affectd = this.db.delete_record(txtModeldescDelete.Text);
+
+            if (rows_affectd > 0)
+            {
+                MessageBox.Show("Successfully added a deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            else
+            {
+                MessageBox.Show("Failed to add a delete", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
