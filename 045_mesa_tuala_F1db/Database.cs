@@ -71,6 +71,78 @@ namespace _045_mesa_tuala_F1db
             return dt;
         }
 
+        public DataTable search_by_all(string keyword, string brand, int low, int high)
+        {
+            string query = "SELECT model.model_desc as [MODEL DESCRIPTION], brand.brand as [BRAND], model.price as [PRICE] " +
+                           "FROM model INNER JOIN brand on model.brandid = brand.brandid " +
+                           "WHERE model_desc LIKE @keyword and brand=@brand and price BETWEEN @low and @high";
+            this.OpenConnection();
+            using (command = new OleDbCommand(query, this.Connection))
+            {
+                command.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+                command.Parameters.AddWithValue("@brand", brand);
+                command.Parameters.AddWithValue("@low", low);
+                command.Parameters.AddWithValue("@high", high);
+                adapter = new OleDbDataAdapter(command);
+                dt = new DataTable();
+                adapter.Fill(dt);
+                this.CloseConnection();
+                return dt;
+            }
+        }
+
+        public DataTable search_by_keyword(string keyword)
+        {
+            string query = "SELECT model.model_desc as [MODEL DESCRIPTION], brand.brand as [BRAND], model.price as [PRICE] " +
+                           "FROM model INNER JOIN brand on model.brandid = brand.brandid " +
+                           "WHERE model_desc LIKE @keyword";
+            this.OpenConnection();
+            using (command = new OleDbCommand(query, this.Connection))
+            {
+                command.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+                adapter = new OleDbDataAdapter(command);
+                dt = new DataTable();
+                adapter.Fill(dt);
+                this.CloseConnection();
+                return dt;
+            }
+        }
+
+        public DataTable search_by_brand(string brand)
+        {
+            string query = "SELECT model.model_desc as [MODEL DESCRIPTION], brand.brand as [BRAND], model.price as [PRICE] " +
+                           "FROM model INNER JOIN brand on model.brandid = brand.brandid " +
+                           "WHERE brand.brand=@brand";
+            this.OpenConnection();
+            using (command = new OleDbCommand(query, this.Connection))
+            {
+                command.Parameters.AddWithValue("@brand", brand);
+                adapter = new OleDbDataAdapter(command);
+                dt = new DataTable();
+                adapter.Fill(dt);
+                this.CloseConnection();
+                return dt;
+            }
+        }
+
+        public DataTable search_by_price_range(int low, int high)
+        {
+            string query = "SELECT model.model_desc as [MODEL DESCRIPTION], brand.brand as [BRAND], model.price as [PRICE] " +
+                           "FROM model INNER JOIN brand on model.brandid = brand.brandid " +
+                           "WHERE price BETWEEN @low and @high";
+            this.OpenConnection();
+            using (command = new OleDbCommand(query, this.Connection))
+            {
+                command.Parameters.AddWithValue("@low", low);
+                command.Parameters.AddWithValue("@high", high);
+                adapter = new OleDbDataAdapter(command);
+                dt = new DataTable();
+                adapter.Fill(dt);
+                this.CloseConnection();
+                return dt;
+            }
+        }
+
         public int add_record(string model_desc, double price, int brand_id)
         {
             string query = "INSERT INTO model (model_desc, price, brandid) VALUES (@model_desc, @price, @brand_id)";
