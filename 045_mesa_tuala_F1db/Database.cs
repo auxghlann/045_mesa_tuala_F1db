@@ -80,9 +80,28 @@ namespace _045_mesa_tuala_F1db
                 command.Parameters.AddWithValue("@model_desc", model_desc);
                 command.Parameters.AddWithValue("@price", price);
                 command.Parameters.AddWithValue("@brand_id", brand_id);
-                int result = command.ExecuteNonQuery();
+                int rows_afffected = command.ExecuteNonQuery();
                 this.CloseConnection();
-                return result;
+                return rows_afffected;
+            }
+        }
+
+
+        public int update_record(string curr_model_desc, string new_model_desc, double new_price, int new_brandid)
+        {
+            string query = "UPDATE model SET model_desc = @new_model_desc, price = @new_price, brandid = @new_brandid WHERE model_desc = @curr_model_desc";
+
+            this.OpenConnection();
+
+            using (command = new OleDbCommand(query, this.Connection))
+            {
+                command.Parameters.AddWithValue("@new_model_desc", new_model_desc);
+                command.Parameters.AddWithValue("@new_price", new_price);
+                command.Parameters.AddWithValue("@new_brandid", new_brandid);
+                command.Parameters.AddWithValue("@curr_model_desc", curr_model_desc);
+                int rows_afffected = command.ExecuteNonQuery();
+                this.CloseConnection();
+                return rows_afffected;
             }
         }
     }
