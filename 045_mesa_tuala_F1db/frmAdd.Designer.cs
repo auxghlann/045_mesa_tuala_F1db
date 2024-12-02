@@ -41,48 +41,44 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(55, 129);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(41, 105);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 16);
+            this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 15;
             this.label3.Text = "Price";
             // 
             // txtPriceAdd
             // 
-            this.txtPriceAdd.Location = new System.Drawing.Point(59, 149);
-            this.txtPriceAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPriceAdd.Location = new System.Drawing.Point(44, 121);
             this.txtPriceAdd.Name = "txtPriceAdd";
-            this.txtPriceAdd.Size = new System.Drawing.Size(284, 22);
+            this.txtPriceAdd.Size = new System.Drawing.Size(214, 20);
             this.txtPriceAdd.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(55, 66);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(41, 54);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 16);
+            this.label2.Size = new System.Drawing.Size(92, 13);
             this.label2.TabIndex = 13;
             this.label2.Text = "Model Description";
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(244, 393);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Location = new System.Drawing.Point(183, 319);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 28);
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 191);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(41, 155);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 16);
+            this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 11;
             this.label1.Text = "Brand";
             // 
@@ -90,26 +86,23 @@
             // 
             this.cboBrandAdd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBrandAdd.FormattingEnabled = true;
-            this.cboBrandAdd.Location = new System.Drawing.Point(59, 210);
-            this.cboBrandAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboBrandAdd.Location = new System.Drawing.Point(44, 171);
             this.cboBrandAdd.Name = "cboBrandAdd";
-            this.cboBrandAdd.Size = new System.Drawing.Size(284, 24);
+            this.cboBrandAdd.Size = new System.Drawing.Size(214, 21);
             this.cboBrandAdd.TabIndex = 3;
             // 
             // txtModeldescAdd
             // 
-            this.txtModeldescAdd.Location = new System.Drawing.Point(59, 86);
-            this.txtModeldescAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtModeldescAdd.Location = new System.Drawing.Point(44, 70);
             this.txtModeldescAdd.Name = "txtModeldescAdd";
-            this.txtModeldescAdd.Size = new System.Drawing.Size(284, 22);
+            this.txtModeldescAdd.Size = new System.Drawing.Size(214, 20);
             this.txtModeldescAdd.TabIndex = 1;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(59, 393);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Location = new System.Drawing.Point(44, 319);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(100, 28);
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -117,9 +110,9 @@
             // 
             // frmAdd
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 503);
+            this.ClientSize = new System.Drawing.Size(303, 409);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtPriceAdd);
             this.Controls.Add(this.label2);
@@ -129,7 +122,6 @@
             this.Controls.Add(this.txtModeldescAdd);
             this.Controls.Add(this.btnAdd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAdd";

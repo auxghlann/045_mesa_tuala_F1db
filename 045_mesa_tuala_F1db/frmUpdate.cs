@@ -38,6 +38,15 @@ namespace _045_mesa_tuala_F1db
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtModeldescUpdate.Text) || string.IsNullOrWhiteSpace(txtCurrModelDesc.Text) ||
+                string.IsNullOrWhiteSpace(txtPriceUpdate.Text))
+            {
+                MessageBox.Show("Please input the required field", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
+
+
             int rows_affectd = db.update_record(txtCurrModelDesc.Text, txtModeldescUpdate.Text, 
                                     Convert.ToDouble(txtPriceUpdate.Text), Convert.ToInt32(cboBrandUpdate.SelectedValue.ToString()));
 
@@ -49,6 +58,14 @@ namespace _045_mesa_tuala_F1db
             {
                 MessageBox.Show("Failed to update a record", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnCancelUpdate_Click(object sender, EventArgs e)
+        {
+            cboBrandUpdate.SelectedIndex = -1;
+            txtPriceUpdate.Clear();
+            txtModeldescUpdate.Clear();
+            txtCurrModelDesc.Clear();   
         }
     }
 }

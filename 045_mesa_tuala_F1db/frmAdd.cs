@@ -39,6 +39,14 @@ namespace _045_mesa_tuala_F1db
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+
+            if(string.IsNullOrWhiteSpace(txtModeldescAdd.Text) || string.IsNullOrWhiteSpace(txtPriceAdd.Text))
+            {
+                MessageBox.Show("Please input the required field", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
             int rows_affectd = db.add_record(txtModeldescAdd.Text, Convert.ToDouble(txtPriceAdd.Text),
                                     Convert.ToInt32(cboBrandAdd.SelectedValue.ToString()));
 
@@ -51,6 +59,13 @@ namespace _045_mesa_tuala_F1db
             {
                 MessageBox.Show("Failed to add a record", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            cboBrandAdd.SelectedIndex = -1;
+            txtModeldescAdd.Clear();
+            txtPriceAdd.Clear();
         }
     }
 }
