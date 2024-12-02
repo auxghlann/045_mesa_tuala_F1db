@@ -19,6 +19,7 @@ namespace _045_mesa_tuala_F1db
 
         // Forms
         private frmAdd frmAdd;
+        private frmUpdate frmUpdate;
 
         public frmMain()
         {
@@ -50,6 +51,18 @@ namespace _045_mesa_tuala_F1db
             }
             frmAdd = new frmAdd(db);
             frmAdd.ShowDialog();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (db == null)
+            {
+                MessageBox.Show("Please import the database first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            frmUpdate = new frmUpdate(db);
+            frmUpdate.ShowDialog();
+
         }
     }
 }
