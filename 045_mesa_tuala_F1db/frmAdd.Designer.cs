@@ -54,7 +54,7 @@
             this.txtPriceAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPriceAdd.Name = "txtPriceAdd";
             this.txtPriceAdd.Size = new System.Drawing.Size(284, 22);
-            this.txtPriceAdd.TabIndex = 14;
+            this.txtPriceAdd.TabIndex = 2;
             // 
             // label2
             // 
@@ -72,7 +72,7 @@
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 28);
-            this.btnCancel.TabIndex = 12;
+            this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -88,12 +88,13 @@
             // 
             // cboBrandAdd
             // 
+            this.cboBrandAdd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBrandAdd.FormattingEnabled = true;
             this.cboBrandAdd.Location = new System.Drawing.Point(59, 210);
             this.cboBrandAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboBrandAdd.Name = "cboBrandAdd";
             this.cboBrandAdd.Size = new System.Drawing.Size(284, 24);
-            this.cboBrandAdd.TabIndex = 10;
+            this.cboBrandAdd.TabIndex = 3;
             // 
             // txtModeldescAdd
             // 
@@ -101,7 +102,7 @@
             this.txtModeldescAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtModeldescAdd.Name = "txtModeldescAdd";
             this.txtModeldescAdd.Size = new System.Drawing.Size(284, 22);
-            this.txtModeldescAdd.TabIndex = 9;
+            this.txtModeldescAdd.TabIndex = 1;
             // 
             // btnAdd
             // 
@@ -109,7 +110,7 @@
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 28);
-            this.btnAdd.TabIndex = 8;
+            this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -133,7 +134,7 @@
             this.MinimizeBox = false;
             this.Name = "frmAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAdd";
+            this.Text = "Add Record";
             this.Load += new System.EventHandler(this.frmAdd_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
