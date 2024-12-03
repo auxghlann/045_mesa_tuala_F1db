@@ -12,12 +12,17 @@ namespace _045_mesa_tuala_F1db
 {
     public partial class frmDelete : Form
     {
-        Database db;
+        private Database db;
 
-        public frmDelete(Database db)
+        // hold selected value
+
+        private string model_desc;
+
+        public frmDelete(Database db, string model_desc)
         {
             InitializeComponent();
             this.db = db;
+            this.model_desc = model_desc;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -46,6 +51,11 @@ namespace _045_mesa_tuala_F1db
         private void btnCancel_Click(object sender, EventArgs e)
         {
             txtModeldescDelete.Clear();
+        }
+
+        private void frmDelete_Load(object sender, EventArgs e)
+        {
+            txtModeldescDelete.Text = model_desc;
         }
     }
 }
