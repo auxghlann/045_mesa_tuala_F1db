@@ -85,6 +85,7 @@
             this.grdview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdview.Size = new System.Drawing.Size(517, 360);
             this.grdview.TabIndex = 2;
+            this.grdview.SelectionChanged += new System.EventHandler(this.grdview_SelectionChanged);
             // 
             // btnAdd
             // 
@@ -266,6 +267,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Record";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdview)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

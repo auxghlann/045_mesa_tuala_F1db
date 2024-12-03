@@ -22,6 +22,12 @@ namespace _045_mesa_tuala_F1db
         private frmUpdate frmUpdate;
         private frmDelete frmDelete;
 
+        // value holder
+
+        private string curr_model_desc;
+        private string curr_brand;
+        private double curr_price;
+
         public frmMain()
         {
             InitializeComponent();
@@ -39,6 +45,11 @@ namespace _045_mesa_tuala_F1db
             cboSearchBrand.SelectedIndex = -1;
         }
 
+        private void fill_grdview()
+        {
+            grdview.DataSource = db.query_all();
+        }
+
         // WinForm Function
         private void importDbToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -51,10 +62,12 @@ namespace _045_mesa_tuala_F1db
 
                 this.db = new Database(db_file_path);
                 InitializeCBO();
+                fill_grdview();
                 MessageBox.Show("Successfully imported the mdb file", "Success", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
         }
 
+        // Record Forms
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
@@ -65,6 +78,7 @@ namespace _045_mesa_tuala_F1db
             }
             frmAdd = new frmAdd(db);
             frmAdd.ShowDialog();
+            fill_grdview();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -74,8 +88,9 @@ namespace _045_mesa_tuala_F1db
                 MessageBox.Show("Please import the database first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            frmUpdate = new frmUpdate(db);
+            frmUpdate = new frmUpdate(db, curr_model_desc, curr_brand, curr_price);
             frmUpdate.ShowDialog();
+            fill_grdview();
 
         }
 
@@ -86,8 +101,9 @@ namespace _045_mesa_tuala_F1db
                 MessageBox.Show("Please import the database first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            frmDelete = new frmDelete(db);
+            frmDelete = new frmDelete(db, curr_model_desc);
             frmDelete.ShowDialog();
+            fill_grdview();
         }
 
         private void btnSearchKeyword_Click(object sender, EventArgs e)
@@ -160,6 +176,31 @@ namespace _045_mesa_tuala_F1db
 
 
 
+        }
+
+        private void grdview_SelectionChanged(object sender, EventArgs e)
+        {
+
+
+            if (grdview.SelectedRows.Count > 0)
+            {
+                var selected_row = grdview.SelectedRows[0].DataBoundItem as DataRowView;
+
+                if (selected_row != null)
+                {
+                    curr_model_desc = selected_row["MODEL DESCRIPTION"].ToString();
+                    curr_brand = selected_row["BRAND"].ToString();
+                    curr_price = Convert.ToDouble(selected_row["PRICE"]);
+                    btnUpdate.Enabled = true;
+                    btnDelete.Enabled = true;
+                }
+            }
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            btnUpdate.Enabled = false;
+            btnDelete.Enabled = false;
         }
     }
 }
