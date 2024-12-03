@@ -12,11 +12,21 @@ namespace _045_mesa_tuala_F1db
 {
     public partial class frmUpdate : Form
     {
-        Database db;
-        public frmUpdate(Database db)
+        private Database db;
+
+        // Hold selected value
+        private string model_desc;
+        private string brand;
+        private double price;
+
+
+        public frmUpdate(Database db, string model_desc, string brand, double price)
         {
             InitializeComponent();
             this.db = db;
+            this.model_desc = model_desc;
+            this.brand = brand;
+            this.price = price;
         }
 
 
@@ -34,6 +44,11 @@ namespace _045_mesa_tuala_F1db
         private void frmUpdate_Load(object sender, EventArgs e)
         {
             InitializeCBO();
+            txtCurrModelDesc.Text = model_desc;
+            txtModeldescUpdate.Text = model_desc;
+            txtPriceUpdate.Text = price.ToString();
+            cboBrandUpdate.Text = brand;
+
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
