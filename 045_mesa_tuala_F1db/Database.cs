@@ -54,6 +54,20 @@ namespace _045_mesa_tuala_F1db
 
 
         // Query functions
+
+        public DataTable query_all()
+        {
+            string query = "SELECT model.model_desc as [MODEL DESCRIPTION], brand.brand as [BRAND], model.price as [PRICE] " +
+                           "FROM model INNER JOIN brand on model.brandid = brand.brandid";
+
+            using (command = new OleDbCommand(query, this.Connection))
+            {
+                adapter = new OleDbDataAdapter(command);
+                dt = new DataTable();
+                adapter.Fill(dt);
+                return dt;
+            }
+        }
         public DataTable query_brand_table()
         {
             string query = "SELECT * FROM brand";
